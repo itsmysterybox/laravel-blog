@@ -42,6 +42,10 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
 		'as' => 'post.store'
 	]);
 
-	Route::get('/posts', 'PostsController@index')->name('posts');	
+	Route::get('/posts', 'PostsController@index')->name('posts');
+
+	Route::get('/post/delete/{id}', 'PostsController@destroy')->name('post.delete');
+	Route::get('/posts/trashed', 'PostsController@trashed')->name('posts.trashed');
+	Route::get('/post/restore/{id}', 'PostsController@restore')->name('post.restore');
 });
 

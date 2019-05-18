@@ -2,14 +2,15 @@
 
 @section('content')
 	<div class="card">
-		<div class="card-header">All Posts</div>
+		<div class="card-header">Trashed Posts</div>
 		<div class="card-body">
 			<table class="table table-hover">
 				<thead>
 					<th>Image</th>
 					<th>Title</th>
 					<th>Edit</th>
-					<th>Trash</th>
+					<th>Restore</th>
+					<th>Delete</th>
 				</thead>
 				<tbody>
 					@foreach($posts as $post)
@@ -18,8 +19,9 @@
 							<td>{{ $post->title }}</td>
 							<td>Edit</td>
 							<td>
-								<a href="{{ route('post.delete', ['id' => $post->id ]) }}" class="btn btn-sm btn-danger">Trash</a>
+								<a href="{{ route('post.restore', ['id' => $post->id ]) }}" class="btn btn-sm btn-success">Restore</a>
 							</td>
+							<td>Delete</td>
 						</tr>
 					@endforeach
 				</tbody>
