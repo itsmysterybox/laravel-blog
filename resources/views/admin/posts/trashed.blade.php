@@ -13,7 +13,7 @@
 					<th>Delete</th>
 				</thead>
 				<tbody>
-					@foreach($posts as $post)
+					@forelse($posts as $post)
 						<tr>
 							<td><img src="{{ $post->featured }}" alt="{{ $post->title }}" width="90px" height="50px"></td>
 							<td>{{ $post->title }}</td>
@@ -25,7 +25,11 @@
 								<a href="{{ route('post.kill', ['id' => $post->id ]) }}" class="btn btn-sm btn-danger">Delete</a>
 							</td>
 						</tr>
-					@endforeach
+					@empty
+						<tr>
+							<th colspan="5" class="text-center">No trashed posts</th>
+						</tr>
+					@endforelse
 				</tbody>
 			</table>
 		</div>

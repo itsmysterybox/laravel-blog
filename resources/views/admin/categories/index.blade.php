@@ -11,7 +11,7 @@
 					<th>Delete</th>
 				</thead>
 				<tbody>
-					@foreach($categories as $category)
+					@forelse($categories as $category)
 						<tr>
 							<td>
 								{{ $category->name }}
@@ -23,7 +23,11 @@
 								<a href="{{ route('category.delete', ['id' => $category->id ]) }}" class="btn btn-xs btn-danger">Delete</a>
 							</td>
 						</tr>
-					@endforeach
+					@empty
+						<tr>
+							<th colspan="5" class="text-center">No categories yet</th>
+						</tr>
+					@endforelse
 				</tbody>
 			</table>
 		</div>

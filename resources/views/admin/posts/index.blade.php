@@ -2,7 +2,7 @@
 
 @section('content')
 	<div class="card">
-		<div class="card-header">All Posts</div>
+		<div class="card-header">Published Posts</div>
 		<div class="card-body">
 			<table class="table table-hover">
 				<thead>
@@ -12,7 +12,7 @@
 					<th>Trash</th>
 				</thead>
 				<tbody>
-					@foreach($posts as $post)
+					@forelse($posts as $post)
 						<tr>
 							<td><img src="{{ $post->featured }}" alt="{{ $post->title }}" width="90px" height="50px"></td>
 							<td>{{ $post->title }}</td>
@@ -23,7 +23,11 @@
 								<a href="{{ route('post.delete', ['id' => $post->id ]) }}" class="btn btn-sm btn-danger">Trash</a>
 							</td>
 						</tr>
-					@endforeach
+					@empty
+						<tr>
+							<th colspan="5" class="text-center">No published posts</th>
+						</tr>
+					@endforelse
 				</tbody>
 			</table>
 		</div>
