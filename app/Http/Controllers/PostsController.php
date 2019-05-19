@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Session;
+use File;
 use App\Post;
 use App\Category;
 use Illuminate\Http\Request;
@@ -123,6 +124,22 @@ class PostsController extends Controller
         $posts = Post::onlyTrashed()->get();
         
         return view('admin.posts.trashed')->with('posts', $posts);
+    }
+
+    public function kill($id) {
+        $post = Post::withTrashed()->where('id', $id)->first();
+
+        $featured_url = $post->featured;
+        $featured_url_arr = explode ('/', $featured_url);
+        $featured = last($featured_url_arr);
+        
+        File::delete('uploads/posts/' . $featured);
+
+        $post->forceDelete();
+
+        Session::flash('success', 'Post deleted permanently.');
+
+        return redirect()->back();
     }
 
     public function restore($id) {

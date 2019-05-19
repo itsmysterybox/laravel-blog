@@ -21,7 +21,9 @@
 							<td>
 								<a href="{{ route('post.restore', ['id' => $post->id ]) }}" class="btn btn-sm btn-success">Restore</a>
 							</td>
-							<td>Delete</td>
+							<td>
+								<a href="{{ route('post.kill', ['id' => $post->id ]) }}" class="btn btn-sm btn-danger">Delete</a>
+							</td>
 						</tr>
 					@endforeach
 				</tbody>
