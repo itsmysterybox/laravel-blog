@@ -111,6 +111,12 @@ class PostsController extends Controller
         $post = Post::find($id);
 
         if($request->hasFile('featured')) {
+            $featured_url = $post->featured;
+            $featured_url_arr = explode ('/', $featured_url);
+            $featured = last($featured_url_arr);
+
+            File::delete('uploads/posts/' . $featured);
+
             $featured = $request->featured;
             $featured_new_name = time().$featured->getClientOriginalName();
             $featured->move('uploads/posts', $featured_new_name);
