@@ -21,15 +21,10 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
 	Route::get('/home', 'HomeController@index')->name('home');
 
 	Route::get('/category/create', 'CategoriesController@create')->name('category.create');
-
 	Route::post('/category/store', 'CategoriesController@store')->name('category.store');
-
 	Route::get('/categories', 'CategoriesController@index')->name('categories');
-
 	Route::get('/category/edit/{id}', 'CategoriesController@edit')->name('category.edit');
-
 	Route::get('/category/delete/{id}', 'CategoriesController@destroy')->name('category.delete');
-
 	Route::post('/category/update/{id}', 'CategoriesController@update')->name('category.update');
 
 	Route::get('/post/create', [
@@ -50,5 +45,12 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
 	Route::get('/post/restore/{id}', 'PostsController@restore')->name('post.restore');
 	Route::get('/post/edit/{id}', 'PostsController@edit')->name('post.edit');
 	Route::post('/post/update/{id}', 'PostsController@update')->name('post.update');
+
+	Route::get('/tag/create', 'TagsController@create')->name('tag.create');
+	Route::post('/tag/store', 'TagsController@store')->name('tag.store');
+	Route::get('/tags', 'TagsController@index')->name('tags');
+	Route::get('/tag/edit/{id}', 'TagsController@edit')->name('tag.edit');
+	Route::post('/tag/update/{id}', 'TagsController@update')->name('tag.update');
+	Route::get('/tag/delete/{id}', 'TagsController@destroy')->name('tag.delete');
 });
 
