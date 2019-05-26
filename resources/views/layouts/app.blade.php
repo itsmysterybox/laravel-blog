@@ -94,6 +94,12 @@
                                     <a href="{{ route('tag.create') }}">Create new tag</a>
                                 </li>
                                 <li class="list-group-item">
+                                    <a href="{{ route('users') }}">Users</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="{{ route('user.create') }}">New user</a>
+                                </li>
+                                <li class="list-group-item">
                                     <a href="{{ route('posts') }}">All posts</a>
                                 </li>
                                 <li class="list-group-item">
