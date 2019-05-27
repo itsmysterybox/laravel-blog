@@ -17,10 +17,14 @@
 							<td><img src="{{ asset($user->profile->avatar) }}" alt="" width="40px" height="40px" style="border-radius: 50%;"></td>
 							<td>{{ $user->name }}</td>
 							<td>
-								<!-- <a href="{{ route('post.edit', ['id' => $post->id ]) }}" class="btn btn-sm btn-info">Edit</a> -->
+								@if($user->admin)
+									<a href="{{ route('user.not.admin', ['id' => $user->id ]) }}" class="btn btn-sm btn-danger">Remove permissions</a>
+								@else
+									<a href="{{ route('user.admin', ['id' => $user->id ]) }}" class="btn btn-sm btn-success">Make admin</a>
+								@endif
 							</td>
 							<td>
-								<!-- <a href="{{ route('post.delete', ['id' => $post->id ]) }}" class="btn btn-sm btn-danger">Trash</a> -->
+								Delete
 							</td>
 						</tr>
 					@empty
