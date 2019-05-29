@@ -58,7 +58,7 @@
                             <a href="{{ $first_post->featured }}" class="link-image js-zoom-image">
                                 <i class="seoicon-zoom"></i>
                             </a>
-                            <a href="{{ route('post.single', ['slug' => $first_post->slug ]) }}" class="link-post">
+                            <a href="#" class="link-post">
                                 <i class="seoicon-link-bold"></i>
                             </a>
                         </div>
@@ -123,7 +123,7 @@
                             <div class="post__content-info">
 
                                     <h2 class="post__title entry-title ">
-                                        <a href="15_blog_details.html">{{ $post->title }}</a>
+                                        <a href="{{ route('post.single', ['slug' => $post->slug ]) }}">{{ $post->title }}</a>
                                     </h2>
 
                                     <div class="post-additional-info">
@@ -184,7 +184,7 @@
                                         <div class="case-item__thumb">
                                             <img src="{{ $post->featured }}" alt="{{ $post->title }}">
                                         </div>
-                                        <h6 class="case-item__title"><a href="#">{{ $post->title }}</a></h6>
+                                        <h6 class="case-item__title"><a href="{{ route('post.single', ['slug' => $post->slug ]) }}">{{ $post->title }}</a></h6>
                                     </div>
                                 </div>
                                 @endforeach
