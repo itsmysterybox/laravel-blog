@@ -17,4 +17,12 @@ class FrontEndController extends Controller
     			->with('latest_categories', Category::orderBy('updated_at', 'desc')->take(2)->get())
     			->with('settings', Setting::first());
     }
+
+    public function singlePost($slug) {
+    	$post = Post::where('slug', $slug)->first();
+
+    	return view('single')->with('post', $post)
+    						->with('categories', Category::take(5)->get())
+    						->with('settings', Setting::first());
+    }
 }
