@@ -15,6 +15,7 @@ Route::get('/', 'FrontEndController@index')->name('index');
 Route::get('/post/{slug}', 'FrontEndController@singlePost')->name('post.single');
 Route::get('/category/{id}', 'FrontEndController@category')->name('category.single');
 Route::get('/tag/{id}', 'FrontEndController@tag')->name('tag.single');
+Route::get('/results', 'FrontEndController@results');
 
 Auth::routes();
 

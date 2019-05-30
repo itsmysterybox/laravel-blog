@@ -45,6 +45,15 @@ class FrontEndController extends Controller
         $tag = Tag::find($id);
 
         return view('tag')->with('tag', $tag)
+                            ->with('categories', Category::take(5)->get())
+                            ->with('settings', Setting::first());
+    }
+
+    public function results() {
+        $posts = Post::where('title', 'like', '%' . request('query') . '%')->get();
+
+        return view('results')->with('posts', $posts)
+                                ->with('query', request('query'))
                                 ->with('categories', Category::take(5)->get())
                                 ->with('settings', Setting::first());
     }
