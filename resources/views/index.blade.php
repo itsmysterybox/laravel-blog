@@ -85,7 +85,7 @@
 
                                         <span class="category">
                                             <i class="seoicon-tags"></i>
-                                            <a href="#">{{ $first_post->category->name }}</a>
+                                            <a href="{{ route('category.single', ['id' => $first_post->category->id ]) }}">{{ $first_post->category->name }}</a>
                                         </span>
 
                                         <span class="post__comments">
@@ -140,7 +140,7 @@
 
                                         <span class="category">
                                             <i class="seoicon-tags"></i>
-                                            <a href="#">{{ $post->category->name }}</a>
+                                            <a href="{{ route('category.single', ['id' => $post->category->id ]) }}">{{ $post->category->name }}</a>
                                         </span>
 
                                         <span class="post__comments">
@@ -168,7 +168,7 @@
                         <div class="row">
                             <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
                                 <div class="heading">
-                                    <h4 class="h1 heading-title">{{ $category->name }}</h4>
+                                    <h4 class="h1 heading-title"><a href="{{ route('category.single', ['id' => $category->id ]) }}">{{ $category->name }}</a></h4>
                                     <div class="heading-line">
                                         <span class="short-line"></span>
                                         <span class="long-line"></span>
