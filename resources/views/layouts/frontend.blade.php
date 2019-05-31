@@ -157,6 +157,6 @@
 
 
 <!-- ...end JS Script -->
-
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5cf14954ed9fd511"></script>
 </body>
 </html>
