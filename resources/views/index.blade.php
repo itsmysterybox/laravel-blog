@@ -160,38 +160,40 @@
 
 
     <div class="container-fluid">
-        <div class="row medium-padding120 bg-border-color">
+        <div class="row bg-border-color">
             <div class="container">
-                <div class="col-lg-12">
+                <div class="col-lg-12" style="margin-top: 100px;">
                     @foreach($latest_categories as $category)
-                    <div class="offers">
-                        <div class="row">
-                            <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
-                                <div class="heading">
-                                    <h4 class="h1 heading-title"><a href="{{ route('category.single', ['id' => $category->id ]) }}">{{ $category->name }}</a></h4>
-                                    <div class="heading-line">
-                                        <span class="short-line"></span>
-                                        <span class="long-line"></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="case-item-wrap">
-                                @foreach($category->posts as $post)
-                                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                                    <div class="case-item">
-                                        <div class="case-item__thumb">
-                                            <img src="{{ $post->featured }}" alt="{{ $post->title }}">
+                        @if($category->posts->count() > 0)
+                        <div class="offers">
+                            <div class="row">
+                                <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
+                                    <div class="heading">
+                                        <h4 class="h1 heading-title"><a href="{{ route('category.single', ['id' => $category->id ]) }}">{{ $category->name }}</a></h4>
+                                        <div class="heading-line">
+                                            <span class="short-line"></span>
+                                            <span class="long-line"></span>
                                         </div>
-                                        <h6 class="case-item__title"><a href="{{ route('post.single', ['slug' => $post->slug ]) }}">{{ $post->title }}</a></h6>
                                     </div>
                                 </div>
-                                @endforeach
+                            </div>
+                            <div class="row">
+                                <div class="case-item-wrap">
+                                    @foreach($category->posts as $post)
+                                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                        <div class="case-item">
+                                            <div class="case-item__thumb">
+                                                <img src="{{ $post->featured }}" alt="{{ $post->title }}">
+                                            </div>
+                                            <h6 class="case-item__title"><a href="{{ route('post.single', ['slug' => $post->slug ]) }}">{{ $post->title }}</a></h6>
+                                        </div>
+                                    </div>
+                                    @endforeach
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="padded-50"></div>
+                        <div class="padded-50"></div>
+                        @endif
                     @endforeach
             </div>
             </div>
