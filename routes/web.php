@@ -30,7 +30,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
 	Route::post('/category/update/{id}', 'CategoriesController@update')->name('category.update');
 
 	Route::get('/post/create', 'PostsController@create')->name('post.create');
-	Route::get('/post/store', 'PostsController@store')->name('post.store');
+	Route::post('/post/store', 'PostsController@store')->name('post.store');
 
 	Route::get('/posts', 'PostsController@index')->name('posts');
 
