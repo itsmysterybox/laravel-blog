@@ -50,7 +50,7 @@
         <div class="row">
             <div class="col-lg-2"></div>
             <div class="col-lg-8">
-                <article class="hentry post post-standard has-post-thumbnail sticky">
+                <article class="hentry post post-standard has-post-thumbnail sticky" id="{{ $first_post->slug }}">
 
                         <div class="post-thumb">
                             <img src="{{ $first_post->featured }}" alt="{{ $first_post->title }}">
@@ -58,7 +58,7 @@
                             <a href="{{ $first_post->featured }}" class="link-image js-zoom-image">
                                 <i class="seoicon-zoom"></i>
                             </a>
-                            <a href="#" class="link-post">
+                            <a href="#{{ $first_post->slug }}" class="link-post">
                                 <i class="seoicon-link-bold"></i>
                             </a>
                         </div>
@@ -105,7 +105,7 @@
         <div class="row">
             @foreach($second_third_posts as $post)
             <div class="col-lg-6">
-                <article class="hentry post post-standard has-post-thumbnail sticky">
+                <article class="hentry post post-standard has-post-thumbnail sticky" id="{{ $post->slug }}">
 
                         <div class="post-thumb">
                             <img src="{{ $post->featured }}" alt="{{ $post->title }}">
@@ -113,7 +113,7 @@
                             <a href="{{ $post->featured }}" class="link-image js-zoom-image">
                                 <i class="seoicon-zoom"></i>
                             </a>
-                            <a href="#" class="link-post">
+                            <a href="#{{ $post->slug }}" class="link-post">
                                 <i class="seoicon-link-bold"></i>
                             </a>
                         </div>
