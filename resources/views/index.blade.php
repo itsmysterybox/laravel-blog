@@ -73,6 +73,13 @@
 
                                     <div class="post-additional-info">
 
+                                        <span class="post__author">
+                                            <a href="#">
+                                                <img src="{{ asset($first_post->user->profile->avatar) }}" alt="" width="20px" height="20px" style="display: inline-block">
+                                                {{ $first_post->user->name }}
+                                            </a>
+                                        </span>
+
                                         <span class="post__date">
 
                                             <i class="seoicon-clock"></i>
@@ -127,6 +134,13 @@
                                     </h2>
 
                                     <div class="post-additional-info">
+
+                                        <span class="post__author">
+                                            <a href="#">
+                                                <img src="{{ asset($post->user->profile->avatar) }}" alt="" width="20px" height="20px" style="display: inline-block">
+                                                {{ $post->user->name }}
+                                            </a>
+                                        </span>
 
                                         <span class="post__date">
 
